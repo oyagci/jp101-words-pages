@@ -3,6 +3,12 @@
 import os
 import json
 
+json_files_folder_path = '' # XXX
+
+if json_files_folder_path == '':
+	print('Please provide JSON file\'s folder!')
+	exit()
+
 def split_into_pages(items, max_item_per_page):
 	pages = []
 	page = []
@@ -24,7 +30,7 @@ def export_jsondata_to_file(name, data):
 
 print('Step 1: Get Content')
 contents = []
-for filename in os.listdir('.'):
+for filename in os.listdir(json_files_folder_path):
 	if filename.endswith('.json'):
 		file = open(filename, 'r')
 		contents.append(file.read())
